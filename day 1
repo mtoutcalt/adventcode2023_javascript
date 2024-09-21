@@ -1,13 +1,13 @@
 function calculateCalibrationValue(input) {
-    const lines = input.split('\n');
+    const lines = input.split('\n'); //newline split
     let sum = 0;
   
     for (const line of lines) {
-      const digits = line.match(/\d/g);
+      const digits = line.match(/\d/g); //find all digit chars
       if (digits && digits.length >= 1) {
         const firstDigit = digits[0];
-        const lastDigit = digits.length > 1 ? digits[digits.length - 1] : firstDigit;
-        sum += parseInt(firstDigit + lastDigit);
+        const lastDigit = digits.length > 1 ? digits[digits.length - 1] : firstDigit; //if 1 digit you count it as first and last digit, else get the last digit of the digit array
+        sum += parseInt(firstDigit + lastDigit); //first concat as strings before converting to ints for sum
       } else {
         // Handle lines with fewer than one digit
         console.warn(`Line "${line}" has no digits.`);
